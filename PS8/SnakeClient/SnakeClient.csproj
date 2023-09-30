@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('OSX'))">$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>SnakeGame</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>SnakeGame</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.snakegame</ApplicationId>
+		<ApplicationIdGuid>2B142BB9-9F9F-4668-90E0-6775062C3270</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Resources\Images\1.png" />
+	  <None Remove="Resources\Images\2.png" />
+	  <None Remove="Resources\Images\3.png" />
+	  <None Remove="Resources\Images\4.png" />
+	  <None Remove="Resources\Images\5.png" />
+	  <None Remove="Resources\Images\6.png" />
+	  <None Remove="Resources\Images\7.png" />
+	  <None Remove="Resources\Images\8.png" />
+	  <None Remove="Resources\Images\exp0.png" />
+	  <None Remove="Resources\Images\exp1.png" />
+	  <None Remove="Resources\Images\exp10.png" />
+	  <None Remove="Resources\Images\exp11.png" />
+	  <None Remove="Resources\Images\exp12.png" />
+	  <None Remove="Resources\Images\exp13.png" />
+	  <None Remove="Resources\Images\exp14.png" />
+	  <None Remove="Resources\Images\exp15.png" />
+	  <None Remove="Resources\Images\exp16.png" />
+	  <None Remove="Resources\Images\exp2.png" />
+	  <None Remove="Resources\Images\exp3.png" />
+	  <None Remove="Resources\Images\exp4.png" />
+	  <None Remove="Resources\Images\exp5.png" />
+	  <None Remove="Resources\Images\exp6.png" />
+	  <None Remove="Resources\Images\exp7.png" />
+	  <None Remove="Resources\Images\exp8.png" />
+	  <None Remove="Resources\Images\exp9.png" />
+	  <None Remove="Resources\Images\Powerup1.png" />
+	  <None Remove="Resources\Images\Powerup2.png" />
+	  <None Remove="Resources\Images\SnakeFaceDown.png" />
+	  <None Remove="Resources\Images\SnakeFaceLeft.png" />
+	  <None Remove="Resources\Images\SnakeFaceRight.png" />
+	  <None Remove="Resources\Images\SnakeFaceUp.png" />
+	  <None Remove="Resources\Images\Texture.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\exp0.png" />
+	  <EmbeddedResource Include="Resources\Images\exp1.png" />
+	  <EmbeddedResource Include="Resources\Images\exp10.png" />
+	  <EmbeddedResource Include="Resources\Images\exp11.png" />
+	  <EmbeddedResource Include="Resources\Images\exp12.png" />
+	  <EmbeddedResource Include="Resources\Images\exp13.png" />
+	  <EmbeddedResource Include="Resources\Images\exp14.png" />
+	  <EmbeddedResource Include="Resources\Images\exp15.png" />
+	  <EmbeddedResource Include="Resources\Images\exp16.png" />
+	  <EmbeddedResource Include="Resources\Images\exp2.png" />
+	  <EmbeddedResource Include="Resources\Images\exp3.png" />
+	  <EmbeddedResource Include="Resources\Images\exp4.png" />
+	  <EmbeddedResource Include="Resources\Images\exp5.png" />
+	  <EmbeddedResource Include="Resources\Images\exp6.png" />
+	  <EmbeddedResource Include="Resources\Images\exp7.png" />
+	  <EmbeddedResource Include="Resources\Images\exp8.png" />
+	  <EmbeddedResource Include="Resources\Images\exp9.png" />
+	  <EmbeddedResource Include="Resources\Images\Powerup1.png" />
+	  <EmbeddedResource Include="Resources\Images\Powerup2.png" />
+	  <EmbeddedResource Include="Resources\Images\SnakeFaceDown.png" />
+	  <EmbeddedResource Include="Resources\Images\SnakeFaceLeft.png" />
+	  <EmbeddedResource Include="Resources\Images\SnakeFaceRight.png" />
+	  <EmbeddedResource Include="Resources\Images\SnakeFaceUp.png" />
+	  <EmbeddedResource Include="Resources\Images\Texture.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MainPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameController\GameController.csproj" />
+  </ItemGroup>
+</Project>
